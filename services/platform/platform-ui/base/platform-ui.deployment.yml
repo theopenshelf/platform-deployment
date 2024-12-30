@@ -30,12 +30,13 @@ spec:
                         - platform-ui
                 topologyKey: "kubernetes.io/hostname"
 
+      imagePullSecrets:
+        - name: ghcr-secret
       containers:
         - name: platform-ui
           image: ghcr.io/theopenshelf/platform-ui
           imagePullPolicy: IfNotPresent
-          imagePullSecrets:
-            - name: ghcr-secret
+
           ports:
             - name: http-server
               containerPort: 80
