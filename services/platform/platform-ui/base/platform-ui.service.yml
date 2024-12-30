@@ -4,12 +4,11 @@ metadata:
   name: platform-ui
   labels:
     app: platform-ui
-    spring-boot: "true"
-
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: platform-ui
   ports:
     - port: 80
       targetPort: http-server
+      nodePort: 30080
