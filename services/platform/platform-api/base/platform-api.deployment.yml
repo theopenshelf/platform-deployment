@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform-api
+  labels:
+    app: platform-api
+spec:
+  selector:
+    matchLabels:
+      app: platform-api
+  template:
+    metadata:
+      labels:
+        app: platform-api
+      annotations:
+        prometheus.io/path: /actuator/prometheus
+        prometheus.io/port: "8080"
+        prometheus.io/scrape: "true"
+    spec:
+      containers:
+        - name: platform-api
+          image: ghcr.io/theopenshelf/platform-api
+          ports:
+            - name: http-server
+              containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: SPRING_PROFILES_ACTIVE
+              value: json-logging
+            - name: JAVA_TOOL_OPTIONS
+              value: "-XX:MaxRAMPercentage=70 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./heapdump"
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 300
+            periodSeconds: 5
+          readinessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 2
+            httpGet:
+              path: /actuator/health
+              port: 8080

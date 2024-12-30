@@ -3,5 +3,10 @@
     "name": "platform-ui",
     "image": "ghcr.io/theopenshelf/platform-ui",
     "directory": "services/platform/platform-ui/base"
+  },
+  {
+    "name": "platform-api",
+    "image": "ghcr.io/theopenshelf/platform-api",
+    "directory": "services/platform/platform-api/base"
   }
 ]
