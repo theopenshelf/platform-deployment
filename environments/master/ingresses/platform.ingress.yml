@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: platform-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true" # Add SSL redirect annotation
+spec:
+  rules:
+    - host: theopenshelf.dev
+      http:
+        paths:
+          - pathType: ImplementationSpecific # Set pathType to ImplementationSpecific
+            path: "/" # Add path "/"
+            backend:
+              service:
+                name: platform-ui
+                port:
+                  number: 80
+
+  tls:
+    - hosts:
+        - theopenshelf.dev
+      secretName: letsencrypt-platform

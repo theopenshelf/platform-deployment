@@ -1,0 +1,7 @@
+[
+  {
+    "name": "platform-ui",
+    "image": "ghcr.io/theopenshelf/platform-ui",
+    "directory": "services/platform/platform-ui/base"
+  }
+]
