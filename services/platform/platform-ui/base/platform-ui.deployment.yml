@@ -35,7 +35,7 @@ spec:
       containers:
         - name: platform-ui
           image: ghcr.io/theopenshelf/platform-ui
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
 
           ports:
             - name: http-server
