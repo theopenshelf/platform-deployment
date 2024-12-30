@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
   - ../../services/platform/platform-ui/environments/master/
   - shared.config.yaml
-  - secrets
   - ingresses/platform.ingress.yml
