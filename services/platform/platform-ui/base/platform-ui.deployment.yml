@@ -36,8 +36,6 @@ spec:
         - name: platform-ui
           image: ghcr.io/theopenshelf/platform-ui
           imagePullPolicy: Always
-          platforms:
-            - linux/arm64
           ports:
             - name: http-server
               containerPort: 80
