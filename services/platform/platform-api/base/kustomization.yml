@@ -8,4 +8,4 @@ resources:
 
 images:
 - name: ghcr.io/theopenshelf/platform-api
-  newTag: 0.0.90
+  newTag: 0.0.91
