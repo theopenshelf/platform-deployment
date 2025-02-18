@@ -7,4 +7,4 @@ resources:
 
 images:
 - name: ghcr.io/theopenshelf/platform-ui
-  newTag: 0.0.95
+  newTag: 0.0.99
